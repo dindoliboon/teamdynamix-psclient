@@ -13,7 +13,7 @@ Install
 # Install in your personal modules folder
 # (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
 # or to a folder of your choice, with:
-Invoke-Expression -Command (New-Object System.Net.WebClient).DownloadString('https://github.com/dindoliboon/teamdynamix-psclient/master/Install.ps1')
+Invoke-Expression -Command (New-Object System.Net.WebClient).DownloadString('https://raw.github.com/dindoliboon/teamdynamix-psclient/master/Install.ps1')
 
 # Import the module
 Import-Module -Name "V:\WindowsPowerShell\Modules\teamdynamix-psclient\teamdynamix-psclient"
