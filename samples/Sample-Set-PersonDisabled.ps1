@@ -21,7 +21,7 @@ if ((Test-Path -Path $SettingsFile) -eq $true) {
     Import-Module -Name ActiveDirectory
     Import-Module -Name "$PSScriptRoot\..\teamdynamix-psclient"
 
-    $Settings = Get-Content -Path $SettingsFile | ConvertFrom-Json
+    $Settings = Get-Content -Path $SettingsFile -Raw | ConvertFrom-Json
 
     $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile -IsAdminCredential $true
 

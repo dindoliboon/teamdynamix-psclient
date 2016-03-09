@@ -16,7 +16,7 @@ $Script:VerbosePreference = 'SilentlyContinue'
 $SettingsFile = "$PSScriptRoot\..\_secret\Sample-PersonImport.settings.txt"
 
 if ((Test-Path -Path $SettingsFile) -eq $true) {
-    $Settings = Get-Content -Path $SettingsFile | ConvertFrom-Json
+    $Settings = Get-Content -Path $SettingsFile -Raw | ConvertFrom-Json
 
     Import-Module -Name ActiveDirectory
     Import-Module -Name $Settings.PsExcelModulePath

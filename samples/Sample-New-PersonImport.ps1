@@ -8,6 +8,8 @@
 # Tested on Windows 10, PowerShell 5.0.10240.16384.
 #
 
+Set-StrictMode -Version 3
+
 $Script:DebugPreference   = 'Continue'
 $Script:VerbosePreference = 'Continue'
 
@@ -19,7 +21,7 @@ $BearerFile   = "$PSScriptRoot\..\_secret\credentials-admin.bearer.txt"
 $SettingsFile = "$PSScriptRoot\..\_secret\Sample-PersonImport.settings.txt"
 
 if ((Test-Path -Path $SettingsFile) -eq $true) {
-    $Settings = Get-Content -Path $SettingsFile | ConvertFrom-Json
+    $Settings = Get-Content -Path $SettingsFile -Raw | ConvertFrom-Json
 
     $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile -IsAdminCredential $true
 

@@ -4,7 +4,7 @@ Unofficial PowerShell module for interacting with [TeamDynamix Web API 9.3](http
 
 This module is not complete and does not implement the entire TeamDynamix Web API.
 
-Tested on Windows 10, PowerShell 5.0.10240.16384.
+Tested on Windows 10, PowerShell 5.0.10240.16384 and Windows Server 2012 R2, PowerShell 4.0.
 
 Install
 =======
@@ -54,9 +54,7 @@ $users
 ```
 
 ### Disable a person
-Account performing action must have API user access.
-
-For details about your BEID and web services key, see [How to log into the Web API](https://solutions.teamdynamix.com/TDClient/KB/ArticleDet?ID=1715).
+Account performing action must have API user access. For details about your BEID and web services key, see [How to log into the Web API](https://solutions.teamdynamix.com/TDClient/KB/ArticleDet?ID=1715).
 
 ```powershell
 # Open an administrative session (uses BEID and web services key).
@@ -76,12 +74,58 @@ $updatedPerson = Set-TdpscPerson -Bearer $bearer -Person $person
 $updatedPerson
 ```
 
+### Import users from XLSX
+TeamDynamix processes People imports at 3 AM EST. See [How to use the TDWebApi Import service to sync users between your organization and TeamDynamix](https://solutions.teamdynamix.com/TDClient/KB/ArticleDet?ID=4191).
+
+Account performing action must have API user access. For details about your BEID and web services key, see [How to log into the Web API](https://solutions.teamdynamix.com/TDClient/KB/ArticleDet?ID=1715).
+
+Active Directory Cmdlets will need to be installed (included in [RSAT](https://www.microsoft.com/en-us/download/details.aspx?id=45520)).
+
+1. Download PSExcel from
+   https://github.com/RamblingCookieMonster/PSExcel/archive/master.zip
+
+2. Extract \PSExcel-master\PSExcel\ in master.zip to V:\scripts\PSExcel\1.0\
+
+3. Open PowerShell console.
+
+4. Run PowerShell command below.
+   ```powershell
+   Invoke-Expression -Command (New-Object System.Net.WebClient).DownloadString('https://raw.github.com/dindoliboon/teamdynamix-psclient/master/Install.ps1')
+   ```
+
+5. For the teamdynamix-psclient install path, enter:
+   > V:\scripts\teamdynamix-psclient\1.0
+
+6. Create the settings file by running the PowerShell command below.
+   ```powershell
+   & 'V:\scripts\teamdynamix-psclient\1.0\samples\Sample-New-ExcelImportTemplate.ps1'
+   ```
+
+7. For PSExcel path, enter:
+   > V:\scripts\PSExcel\1.0\PSExcel.psm1
+
+8. For LDAP search filter (this includes enabled accounts, with mail attribute, for person/user objects, and member of faculty or staff), enter:
+   > (&(!(userAccountControl:1.2.840.113556.1.4.803:=2))(objectCategory=person)(objectClass=user)(mail=\*)(sAMAccountName=\*)(|(memberOf=CN=Faculty,OU=Groups,OU=SCHOOL,DC=AD,DC=SCHOOL,DC=EDU)(memberOf=CN=Staff,OU=Groups,OU=SCHOOL,DC=AD,DC=SCHOOL,DC=EDU)))
+
+9. For LDAP search base, enter:
+   > OU=Faculty and Staff,OU=SCHOOL,DC=AD,DC=SCHOOL,DC=EDU
+
+10. Create the XLSX by running the PowerShell command below. This process can take a few minutes depending on the size of your search base.
+    ```powershell
+    & 'V:\scripts\teamdynamix-psclient\1.0\samples\Sample-New-ExcelImportTemplate.ps1'
+    ```
+
+11. Upload the XLSX to TeamDynamix by running the PowerShell command below. This will also prompt for your administrative credentials for the first time and save it to a file.
+    ```powershell
+    & 'V:\scripts\teamdynamix-psclient\1.0\samples\Sample-New-PersonImport.ps1'
+    ```
+
 Credits
 =======
 1. [PSExcel module](https://github.com/RamblingCookieMonster/PSExcel).
 Sample-New-ExcelImportTemplate.ps1
 
-2. [Multipart HTTP Post with PowerShell](http://stackoverflow.com/questions/25075010/upload-multiple-files-from-powershell-script/34771519)
+2. [Multipart HTTP Post with PowerShell](http://stackoverflow.com/questions/25075010/upload-multiple-files-from-powershell-script/34771519).
 people.ps1
 
-3. [PowerShell module installer](https://github.com/lzybkr/TabExpansionPlusPlus) Install.ps1
+3. [PowerShell module installer](https://github.com/lzybkr/TabExpansionPlusPlus). Install.ps1
