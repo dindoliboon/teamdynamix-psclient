@@ -53,7 +53,7 @@ function New-TdpscLoginSession
                 'UserName' = $Credential.GetNetworkCredential().UserName
                 'Password' = $Credential.GetNetworkCredential().Password
                 } | ConvertTo-Json -Compress
-            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post
+            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -UseBasicParsing
             $result  = $resp.Content
         }
     }
@@ -118,7 +118,7 @@ function New-TdpscLoginAdminSession
                 'BEID'           = $Credential.GetNetworkCredential().UserName
                 'WebServicesKey' = $Credential.GetNetworkCredential().Password
                 } | ConvertTo-Json -Compress
-            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post
+            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -UseBasicParsing
             $result  = $resp.Content
         }
     }
@@ -313,7 +313,7 @@ function Get-TdpscLoginSession
     {
         if ($PSCmdlet.ShouldProcess($Bearer, 'Get the current user of the bearer token.'))
         {
-            $resp   = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer}
+            $resp   = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer} -UseBasicParsing
             $result = $resp.Content | ConvertFrom-Json
         }
     }

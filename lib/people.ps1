@@ -56,7 +56,7 @@ function Get-TdpscRestrictedPersonSearch
     {
         if ($PSCmdlet.ShouldProcess($Bearer, 'Performs a restricted lookup of TeamDynamix people.'))
         {
-            $resp    = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer}
+            $resp    = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer} -UseBasicParsing
             $result  = $resp.Content | ConvertFrom-Json
         }
     }
@@ -153,7 +153,7 @@ function Get-TdpscPersonSearch
                 'MaxResults' = $MaxResults
             } | ConvertTo-Json -Compress
             Write-Debug -Message "JSON request: $request"
-            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -Headers @{'Authorization' = 'Bearer ' + $Bearer}
+            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -Headers @{'Authorization' = 'Bearer ' + $Bearer} -UseBasicParsing
             $result  = $resp.Content | ConvertFrom-Json
         }
     }
@@ -238,7 +238,7 @@ Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
 $fileEnc
 --$boundary--
 "@
-            $result = Invoke-WebRequest -Uri $url -Body $request -ContentType "multipart/form-data; boundary=`"$boundary`"" -Method Post -Headers @{'Authorization' = 'Bearer ' + $Bearer;}
+            $result = Invoke-WebRequest -Uri $url -Body $request -ContentType "multipart/form-data; boundary=`"$boundary`"" -Method Post -Headers @{'Authorization' = 'Bearer ' + $Bearer;} -UseBasicParsing
             $result = $result.StatusDescription
         }
     }
@@ -301,7 +301,7 @@ function Get-TdpscPerson
     {
         if ($PSCmdlet.ShouldProcess($Bearer, 'Gets a person from the system.'))
         {
-            $resp    = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization'='Bearer ' + $Bearer}
+            $resp    = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization'='Bearer ' + $Bearer} -UseBasicParsing
             $result = $resp.Content | ConvertFrom-Json
         }
     }
@@ -367,7 +367,7 @@ function Set-TdpscPerson
         if ($PSCmdlet.ShouldProcess($Bearer, 'Updates a person with a new set of values.'))
         {
             $request = $Person | ConvertTo-Json -Compress
-            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -Headers @{'Authorization'='Bearer ' + $Bearer}
+            $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -Headers @{'Authorization'='Bearer ' + $Bearer} -UseBasicParsing
             $result = $resp.Content | ConvertFrom-Json
         }
     }

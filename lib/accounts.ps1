@@ -50,7 +50,7 @@ function Get-TdpscAccount
     {
         if ($PSCmdlet.ShouldProcess($Credential, 'Logs in the current session with the specified parameters.'))
         {
-            $resp    = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer}
+            $resp    = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer} -UseBasicParsing
             $result  = $resp.Content | ConvertFrom-Json
         }
     }
