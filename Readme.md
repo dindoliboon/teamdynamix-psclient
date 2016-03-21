@@ -120,12 +120,18 @@ Active Directory Cmdlets will need to be installed (included in [RSAT](https://w
     & 'V:\scripts\teamdynamix-psclient\1.0\samples\Sample-New-PersonImport.ps1'
     ```
 
+To-do
+=======
+* Complete first section for API (Accounts, Attachments, Attributes, Auth Groups, Locations, People). Created initial module, which uses Json.NET and TeamDynamix.Api.dll to deserialize data to/from API calls into correct data types.
+
 Credits
 =======
-1. [PSExcel module](https://github.com/RamblingCookieMonster/PSExcel).
+1. [PSExcel module](https://github.com/RamblingCookieMonster/PSExcel)
 Sample-New-ExcelImportTemplate.ps1
 
-2. [Multipart HTTP Post with PowerShell](http://stackoverflow.com/questions/25075010/upload-multiple-files-from-powershell-script/34771519).
+2. [Multipart HTTP Post with PowerShell](http://stackoverflow.com/questions/25075010/upload-multiple-files-from-powershell-script/34771519)
 people.ps1
 
-3. [PowerShell module installer](https://github.com/lzybkr/TabExpansionPlusPlus). Install.ps1
+3. [PowerShell module installer](https://github.com/lzybkr/TabExpansionPlusPlus) Install.ps1
+
+4. [PSJira](https://github.com/replicaJunction/PSJira) and [PowerShell module for Ravello Systems](https://github.com/lucdekens/Ravello) with Pester and module design.

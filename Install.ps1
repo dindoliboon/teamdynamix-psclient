@@ -10,19 +10,25 @@
 
 param([string]$Path)
 
-$githubBase = 'https://raw.github.com/dindoliboon'
-$moduleName = 'teamdynamix-psclient'
+$githubBase    = 'https://raw.github.com/dindoliboon'
+$moduleName    = 'teamdynamix-psclient'
+$moduleVersion = '1.0.0.3'
 
 $fileList = @(
     'lib\',
     'samples\',
+    'tests\',
     '_secret\',
-	'LICENSE.md',
+    'Install.ps1',
+    'LICENSE.md',
+    'README.md',
     'teamdynamix-psclient.psd1',
     'teamdynamix-psclient.psm1',
-    'lib\accounts.ps1',
-    'lib\auth.ps1',
-    'lib\people.ps1',
+    'lib\apis\',
+    'lib\apis\accounts.ps1',
+    'lib\apis\auth.ps1',
+    'lib\apis\internal.ps1',
+    'lib\apis\people.ps1',
     'samples\Sample-Get-Department.ps1',
     'samples\Sample-Get-PersonSearch.ps1',
     'samples\Sample-New-AdminSession.ps1',
@@ -52,19 +58,21 @@ if ('' -eq $Path)
     $Path = ($Path, $prompt)[[bool]$prompt]
 }
 
+$Path = Join-Path -Path $Path -ChildPath $moduleVersion
+
 if (!(Test-Path -Path $Path))
 {
     New-Item -Path $Path -ItemType Directory
 }
 
-$fileList  |% {
+$fileList | ForEach-Object {
     if ($_[$_.Length - 1] -like '\') {
         New-Item -Path $Path -Name $_ -ItemType Directory
     }
 }
 
 $wc = New-Object -TypeName System.Net.WebClient
-$fileList |% {
+$fileList | ForEach-Object {
     if ($_[$_.Length - 1] -notlike '\') {
         $webFile   = "$githubBase/$moduleName/master/$_"
         $localFile = "$Path\$_"

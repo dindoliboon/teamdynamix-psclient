@@ -1,27 +1,32 @@
-<#
-.Synopsis
-    Logs in the current session with the specified parameters.
-.PARAMETER Credential
-    The login parameters.
-.EXAMPLE
-    Pass the login information by parameter.
+#Requires -Version 3
 
-    $Bearer = New-TdpscLoginSession -Credential $Credential
-.EXAMPLE
-    Pipe the credentials to New-TdpscLoginSession.
+Set-StrictMode -Version 3
 
-    $Bearer = Get-Credential | New-TdpscLoginSession
-.INPUTS
-    PSCredential
-
-    You can pipe a credentials (PSCredential) to New-TdpscLoginSession.
-.OUTPUTS
-    String. The authentication result, which will include the text of the necessary "Bearer" token to be included with subsequent requests.
-.LINK
-    https://app.teamdynamix.com/TDWebApi/Home/section/Auth#POSTapi/auth
-#>
 function New-TdpscLoginSession
 {
+    <#
+    .Synopsis
+        Logs in the current session with the specified parameters.
+    .PARAMETER Credential
+        The login parameters.
+    .EXAMPLE
+        Pass the login information by parameter.
+
+        $Bearer = New-TdpscLoginSession -Credential $Credential
+    .EXAMPLE
+        Pipe the credentials to New-TdpscLoginSession.
+
+        $Bearer = Get-Credential | New-TdpscLoginSession
+    .INPUTS
+        PSCredential
+
+        You can pipe a credentials (PSCredential) to New-TdpscLoginSession.
+    .OUTPUTS
+        String. The authentication result, which will include the text of the necessary "Bearer" token to be included with subsequent requests.
+    .LINK
+        https://app.teamdynamix.com/TDWebApi/Home/section/Auth#POSTapi/auth
+    #>
+
     [CmdletBinding(DefaultParameterSetName='Credential',
                   SupportsShouldProcess=$true,
                   PositionalBinding=$false,
@@ -63,30 +68,31 @@ function New-TdpscLoginSession
     }
 }
 
-<#
-.Synopsis
-    Logs in the current session using an administrative account.
-.PARAMETER Credential
-    The administrative account parameters.
-.EXAMPLE
-    Pass the login information by parameter.
-
-    $Bearer = New-TdpscLoginAdminSession -Credential $Credential
-.EXAMPLE
-    Pipe the credentials to New-TdpscLoginAdminSession.
-
-    $Bearer = Get-Credential | New-TdpscLoginAdminSession
-.INPUTS
-    PSCredential
-
-    You can pipe a credentials (PSCredential) to New-TdpscLoginAdminSession.
-.OUTPUTS
-    String. The authentication result, which will include the text of the necessary "Bearer" token to be included with subsequent requests.
-.LINK
-    https://app.teamdynamix.com/TDWebApi/Home/section/Auth#POSTapi/auth/loginadmin
-#>
 function New-TdpscLoginAdminSession
 {
+    <#
+    .Synopsis
+        Logs in the current session using an administrative account.
+    .PARAMETER Credential
+        The administrative account parameters.
+    .EXAMPLE
+        Pass the login information by parameter.
+
+        $Bearer = New-TdpscLoginAdminSession -Credential $Credential
+    .EXAMPLE
+        Pipe the credentials to New-TdpscLoginAdminSession.
+
+        $Bearer = Get-Credential | New-TdpscLoginAdminSession
+    .INPUTS
+        PSCredential
+
+        You can pipe a credentials (PSCredential) to New-TdpscLoginAdminSession.
+    .OUTPUTS
+        String. The authentication result, which will include the text of the necessary "Bearer" token to be included with subsequent requests.
+    .LINK
+        https://app.teamdynamix.com/TDWebApi/Home/section/Auth#POSTapi/auth/loginadmin
+    #>
+
     [CmdletBinding(DefaultParameterSetName='Credential',
                   SupportsShouldProcess=$true,
                   PositionalBinding=$false,
@@ -128,44 +134,45 @@ function New-TdpscLoginAdminSession
     }
 }
 
-<#
-.Synopsis
-    Logs in the current session with cached credentials. If cached token is invalid, function will use stored credentials. If user credentials are invalid, user will be prompted for new credentials.
-.PARAMETER UserNameFile
-    The file containing the user name.
-.PARAMETER PasswordFile
-    The file containing the password.
-.PARAMETER BearerFile
-    The file containing the bearer token.
-.PARAMETER IsAdminCredential
-    Specifies to perform an administrative login. Default value is $false.
-.PARAMETER RetryCount
-    The current login attempt. The default value is 1. This value should not be used by the user.
-.PARAMETER MaxRetry
-    The maximum number of attempts to try to login. The default is 3.
-.EXAMPLE
-    Login with user credentials.
-
-    $UserNameFile = "$PSScriptRoot\..\_secret\credentials-user.username.txt"
-    $PasswordFile = "$PSScriptRoot\..\_secret\credentials-user.password.txt"
-    $BearerFile   = "$PSScriptRoot\..\_secret\credentials-user.bearer.txt"
-
-    $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile
-.EXAMPLE
-    Login with administrative credentials.
-
-    $UserNameFile = "$PSScriptRoot\..\_secret\credentials-admin.username.txt"
-    $PasswordFile = "$PSScriptRoot\..\_secret\credentials-admin.password.txt"
-    $BearerFile   = "$PSScriptRoot\..\_secret\credentials-admin.bearer.txt"
-
-    $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile -IsAdminCredential $true
-.OUTPUTS
-    String. The authentication result, which will include the text of the necessary "Bearer" token to be included with subsequent requests.
-.LINK
-    https://app.teamdynamix.com/TDWebApi/Home/section/Auth#POSTapi/auth
-#>
 function New-TdpscCachedLoginSession
 {
+    <#
+    .Synopsis
+        Logs in the current session with cached credentials. If cached token is invalid, function will use stored credentials. If user credentials are invalid, user will be prompted for new credentials.
+    .PARAMETER UserNameFile
+        The file containing the user name.
+    .PARAMETER PasswordFile
+        The file containing the password.
+    .PARAMETER BearerFile
+        The file containing the bearer token.
+    .PARAMETER IsAdminCredential
+        Specifies to perform an administrative login. Default value is $false.
+    .PARAMETER RetryCount
+        The current login attempt. The default value is 1. This value should not be used by the user.
+    .PARAMETER MaxRetry
+        The maximum number of attempts to try to login. The default is 3.
+    .EXAMPLE
+        Login with user credentials.
+
+        $UserNameFile = "$PSScriptRoot\..\_secret\credentials-user.username.txt"
+        $PasswordFile = "$PSScriptRoot\..\_secret\credentials-user.password.txt"
+        $BearerFile   = "$PSScriptRoot\..\_secret\credentials-user.bearer.txt"
+
+        $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile
+    .EXAMPLE
+        Login with administrative credentials.
+
+        $UserNameFile = "$PSScriptRoot\..\_secret\credentials-admin.username.txt"
+        $PasswordFile = "$PSScriptRoot\..\_secret\credentials-admin.password.txt"
+        $BearerFile   = "$PSScriptRoot\..\_secret\credentials-admin.bearer.txt"
+
+        $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile -IsAdminCredential $true
+    .OUTPUTS
+        String. The authentication result, which will include the text of the necessary "Bearer" token to be included with subsequent requests.
+    .LINK
+        https://app.teamdynamix.com/TDWebApi/Home/section/Auth#POSTapi/auth
+    #>
+
     [CmdletBinding(SupportsShouldProcess=$true,
                   PositionalBinding=$false,
                   ConfirmImpact='Low')]
@@ -209,7 +216,7 @@ function New-TdpscCachedLoginSession
                 $result = Get-Content -Path $BearerFile
 
                 $User = $result | Get-TdpscLoginSession
-                if ($User -eq $null) {
+                if ($null -eq $User) {
                     Write-Verbose -Message 'Need to refresh Bearer token!'
                     $refresh = $true
                 }
@@ -238,7 +245,7 @@ function New-TdpscCachedLoginSession
                     $result = $Credentials | New-TdpscLoginSession
                 }
 
-                if ($result -eq $null) {
+                if ($null -eq $result) {
                     if ($RetryCount -lt $MaxRetry) {
                         Write-Verbose -Message "Possible incorrect credentials. Removing old cached credentials. Calling function again ($RetryCount/$MaxRetry)."
                         Remove-Item -Path $UserNameFile -Force
@@ -261,34 +268,33 @@ function New-TdpscCachedLoginSession
     }
 }
 
-<#
-.Synopsis
-    Gets the current user.
-.PARAMETER Bearer
-    Bearer token received when logging in.
-.EXAMPLE
-    Pass the bearer token by parameter.
-
-    $user = Get-TdpscLoginSession -Bearer $Bearer
-.EXAMPLE
-    Pipe the bearer token to Get-TdpscLoginSession.
-
-    $user = "My Bearer Token" | Get-TdpscLoginSession
-.INPUTS
-    System.String
-
-    You can pipe a bearer token (string) to Get-TdpscLoginSession.
-.OUTPUTS
-    PSObject. The current user. (TeamDynamix.Api.Users.User)
-.LINK
-    https://app.teamdynamix.com/TDWebApi/Home/section/Auth#GETapi/auth/getuser
-#>
 function Get-TdpscLoginSession
 {
+    <#
+    .Synopsis
+        Gets the current user.
+    .PARAMETER Bearer
+        Bearer token received when logging in.
+    .EXAMPLE
+        Pass the bearer token by parameter.
+
+        $user = Get-TdpscLoginSession -Bearer $Bearer
+    .EXAMPLE
+        Pipe the bearer token to Get-TdpscLoginSession.
+
+        $user = "My Bearer Token" | Get-TdpscLoginSession
+    .INPUTS
+        System.String
+
+        You can pipe a bearer token (string) to Get-TdpscLoginSession.
+    .OUTPUTS
+        PSObject. The current user. (TeamDynamix.Api.Users.User)
+    .LINK
+        https://app.teamdynamix.com/TDWebApi/Home/section/Auth#GETapi/auth/getuser
+    #>
+
     [CmdletBinding(DefaultParameterSetName='Bearer',
-                  SupportsShouldProcess=$true,
-                  PositionalBinding=$false,
-                  ConfirmImpact='Low')]
+                  PositionalBinding=$false)]
     [OutputType([PSObject])]
     Param
     (
@@ -311,11 +317,8 @@ function Get-TdpscLoginSession
     }
     Process
     {
-        if ($PSCmdlet.ShouldProcess($Bearer, 'Get the current user of the bearer token.'))
-        {
-            $resp   = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer} -UseBasicParsing
-            $result = $resp.Content | ConvertFrom-Json
-        }
+        $resp   = Invoke-WebRequest -Uri $url -ContentType 'application/json' -Method Get -Headers @{'Authorization' = 'Bearer ' + $Bearer} -UseBasicParsing
+        $result = $resp.Content | ConvertFrom-Json
     }
     End
     {

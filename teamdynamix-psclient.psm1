@@ -1,14 +1,18 @@
-#Requires -Version 4
+#Requires -Version 3
 
-#
-# PowerShell module for interacting with the TeamDynamix Web API 9.3
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
+Set-StrictMode -Version 3
 
-# Locate any PowerShell scripts under the lib folder.
-(Get-ChildItem -Path (Join-Path -Path $PSScriptRoot -ChildPath 'lib\*.ps1') -Recurse) | ForEach-Object {
-    # Using dot source with *.ps1 instead of Import-Module with *.psm1.
-    # Multi-nested modules ignore -Verbose & -Debug parameters.
-    . $_.FullName
+ForEach ($import in (Get-ChildItem -Path (Join-Path -Path $PSScriptRoot -ChildPath 'lib\*.ps1') -Recurse | Where-Object -FilterScript { -not ($_.FullName -like '*.tests.*') }))
+{
+    Try
+    {
+        # Using dot source with *.ps1 instead of Import-Module with *.psm1.
+        # Multi-nested modules ignore -Verbose & -Debug parameters.
+        Write-Verbose -Message "Loading module from path '$($import.FullName)'."
+        . $import.FullName
+    }
+    Catch
+    {
+        Write-Error -Message "Failed to import function $($import.FullName): $_"
+    }
 }
