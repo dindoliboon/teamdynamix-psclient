@@ -26,16 +26,20 @@ $fileList = @(
     'teamdynamix-psclient.psm1',
     'lib\apis\',
     'lib\apis\accounts.ps1',
+    'lib\apis\accounts.tests.ps1',
     'lib\apis\auth.ps1',
+    'lib\apis\auth.tests.ps1',
     'lib\apis\internal.ps1',
     'lib\apis\people.ps1',
+    'lib\apis\people.tests.ps1',
     'samples\Sample-Get-Department.ps1',
     'samples\Sample-Get-PersonSearch.ps1',
     'samples\Sample-New-AdminSession.ps1',
     'samples\Sample-New-ExcelImportTemplate.ps1',
     'samples\Sample-New-PersonImport.ps1',
     'samples\Sample-Set-Person.ps1',
-    'samples\Sample-Set-PersonDisabled.ps1'
+    'samples\Sample-Set-PersonDisabled.ps1',
+    'tests\PSScriptAnalyzer.ps1'
 )
 
 if ('' -eq $Path)
