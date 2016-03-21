@@ -21,7 +21,6 @@ $fileList = @(
     '_secret\',
     'Install.ps1',
     'LICENSE.md',
-    'README.md',
     'teamdynamix-psclient.psd1',
     'teamdynamix-psclient.psm1',
     'lib\apis\',
