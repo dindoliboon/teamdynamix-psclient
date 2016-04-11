@@ -8,6 +8,10 @@
 # Tested on Windows 10, PowerShell 5.0.10240.16384.
 #
 
+#Requires -Version 3
+
+Set-StrictMode -Version 3
+
 $Script:DebugPreference   = 'Continue'
 $Script:VerbosePreference = 'Continue'
 
@@ -21,16 +25,18 @@ if ((Test-Path -Path $SettingsFile) -eq $true) {
     Import-Module -Name ActiveDirectory
     Import-Module -Name "$PSScriptRoot\..\teamdynamix-psclient"
 
+    Set-TdpscApiBaseAddress -Target 'Sandbox'
+
     $Settings = Get-Content -Path $SettingsFile -Raw | ConvertFrom-Json
 
     $Bearer = New-TdpscCachedLoginSession -UserNameFile $UserNameFile -PasswordFile $PasswordFile -BearerFile $BearerFile -IsAdminCredential $true
 
     $disabledEmployeesAd = Get-ADUser -LDAPFilter $DisabledLDAPFilter -SearchBase $Settings.SearchBase -SearchScope Subtree -Properties sAMAccountName,mail
-    $disabledEmployeesAd |% {
+    $disabledEmployeesAd | ForEach-Object {
         $UserSearch = $Bearer | Get-TdpscRestrictedPersonSearch -SearchText $_.mail
-        if ($UserSearch -ne $null) {
+        if ($null -ne $UserSearch) {
             $Person = Get-TdpscPerson -Bearer $Bearer -UID $UserSearch.UID
-            if ($Person -ne $null -and $Person.UID -ne $null) {
+            if ($null -ne $Person -and $null -ne $Person.UID) {
                 $Person.IsActive = $false
                 $UpdatedPerson = Set-TdpscPerson -Bearer $Bearer -Person $Person
                 $UpdatedPerson | Format-Table
@@ -45,5 +51,5 @@ if ((Test-Path -Path $SettingsFile) -eq $true) {
     Remove-Module -Name ActiveDirectory
     Remove-Module -Name teamdynamix-psclient
 } else {
-    Write-Verbose -Message "The settings file $SettingsFile does not exist. Run Sample-New-ExcelImportTemplate.ps1 to create the settings file first."
+    Write-Error -Message "The settings file $SettingsFile does not exist. Run Sample-New-ExcelImportTemplate.ps1 to create the settings file first."
 }

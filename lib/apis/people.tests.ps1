@@ -7,8 +7,6 @@ Set-StrictMode -Version 3
 $Script:DebugPreference   = 'SilentlyContinue'
 $Script:VerbosePreference = 'SilentlyContinue'
 
-Clear-Host
-
 Import-Module -Name "$PSScriptRoot\..\..\teamdynamix-psclient"
 
 InModuleScope teamdynamix-psclient {
@@ -96,7 +94,7 @@ InModuleScope teamdynamix-psclient {
     }
 
     Describe 'Get-TdpscPersonSearch' {
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq 'https://app.teamdynamix.com/TDWebApi/api/people/search'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'people/search')} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -174,7 +172,7 @@ InModuleScope teamdynamix-psclient {
             ''
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq 'https://app.teamdynamix.com/TDWebApi/api/people/import'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'people/import')} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"

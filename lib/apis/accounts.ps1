@@ -46,7 +46,7 @@ function Get-TdpscAccount
 
     Begin
     {
-        $url    = 'https://app.teamdynamix.com/TDWebApi/api/accounts'
+        $url    = (Get-TdpscApiBaseAddress) + 'accounts'
         $result = $null
     }
     Process

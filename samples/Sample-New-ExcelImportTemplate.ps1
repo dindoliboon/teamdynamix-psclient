@@ -10,8 +10,12 @@
 # Tested on Windows 10, PowerShell 5.0.10240.16384.
 #
 
+#Requires -Version 3
+
+Set-StrictMode -Version 3
+
 $Script:DebugPreference   = 'Continue'
-$Script:VerbosePreference = 'SilentlyContinue'
+$Script:VerbosePreference = 'Continue'
 
 $SettingsFile = "$PSScriptRoot\..\_secret\Sample-PersonImport.settings.txt"
 
@@ -23,11 +27,11 @@ if ((Test-Path -Path $SettingsFile) -eq $true) {
 
     $employeesAd = Get-ADUser -LDAPFilter $Settings.LDAPFilter -SearchBase $Settings.SearchBase -SearchScope Subtree -Properties sAMAccountName,givenName,sn,company,department,mail,telephoneNumber,title,physicalDeliveryOfficeName,manager
 
-    $employeesAd | Select @{label = 'User Type'; Expression = {'customer';}},
+    $employeesAd | Select-Object @{label = 'User Type'; Expression = {'customer';}},
                         @{label = 'Username'; Expression = {$_.sAMAccountName;}},
                         @{label = 'Password'; Expression = {[Guid]::NewGuid().Guid;}},
                         @{label = 'Authentication Provider'; Expression = {'TeamDynamix';}},
-                        @{label = 'Authentication Username'; Expression = {$_.sAMAccountName;}},
+                        @{label = 'Authentication Username'; Expression = {$_.sAMAccountName + $Settings.Domain;}},
                         @{label = 'Security Role'; Expression = {'';}},
                         @{label = 'First Name'; Expression = {$_.givenName;}},
                         @{label = 'Last Name'; Expression = {$_.sn;}},

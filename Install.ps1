@@ -12,23 +12,27 @@ param([string]$Path)
 
 $githubBase    = 'https://raw.github.com/dindoliboon'
 $moduleName    = 'teamdynamix-psclient'
-$moduleVersion = '1.0.0.3'
+$moduleVersion = '1.0.0.4'
 
 $fileList = @(
     'lib\',
     'samples\',
-    'tests\',
+    'tools\',
     '_secret\',
+    '.gitattributes',
     'Install.ps1',
     'LICENSE.md',
+    'README.md',
     'teamdynamix-psclient.psd1',
     'teamdynamix-psclient.psm1',
     'lib\apis\',
+    'lib\Decode-JwtToken.internal.ps1',
+    'lib\tdpsc.internal.ps1',
+    'lib\tdtypes.internal.ps1',
     'lib\apis\accounts.ps1',
     'lib\apis\accounts.tests.ps1',
     'lib\apis\auth.ps1',
     'lib\apis\auth.tests.ps1',
-    'lib\apis\internal.ps1',
     'lib\apis\people.ps1',
     'lib\apis\people.tests.ps1',
     'samples\Sample-Get-Department.ps1',
@@ -38,7 +42,11 @@ $fileList = @(
     'samples\Sample-New-PersonImport.ps1',
     'samples\Sample-Set-Person.ps1',
     'samples\Sample-Set-PersonDisabled.ps1',
-    'tests\PSScriptAnalyzer.ps1'
+    'tools\Export-TdWebApiTypes.ps1',
+    'tools\Get-InstallFiles.ps1',
+    'tools\Get-WebRequestTable.ps1',
+    'tools\Invoke-PreparePublish.ps1',
+    'tools\Invoke-PSScriptAnalyzer.ps1'
 )
 
 if ('' -eq $Path)

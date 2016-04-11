@@ -7,8 +7,6 @@ Set-StrictMode -Version 3
 $Script:DebugPreference   = 'SilentlyContinue'
 $Script:VerbosePreference = 'SilentlyContinue'
 
-Clear-Host
-
 Import-Module -Name "$PSScriptRoot\..\..\teamdynamix-psclient"
 
 InModuleScope teamdynamix-psclient {
@@ -17,7 +15,7 @@ InModuleScope teamdynamix-psclient {
     $restAccountGet = '[{"ID":1,"Name":"Testing Division","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""},{"ID":2,"Name":"Information Technology Services","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""}]'
 
     Describe 'Get-TdpscAccount' {
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Get' -and $URI -eq 'https://app.teamdynamix.com/TDWebApi/api/accounts'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Get' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts')} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"

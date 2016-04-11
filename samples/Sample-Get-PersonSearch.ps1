@@ -6,10 +6,16 @@
 # Tested on Windows 10, PowerShell 5.0.10240.16384.
 #
 
+#Requires -Version 3
+
+Set-StrictMode -Version 3
+
 $Script:DebugPreference   = 'Continue'
 $Script:VerbosePreference = 'Continue'
 
 Import-Module -Name "$PSScriptRoot\..\teamdynamix-psclient"
+
+Set-TdpscApiBaseAddress -Target 'Sandbox'
 
 $UserNameFile = "$PSScriptRoot\..\_secret\credentials-user.username.txt"
 $PasswordFile = "$PSScriptRoot\..\_secret\credentials-user.password.txt"

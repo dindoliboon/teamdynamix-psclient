@@ -54,7 +54,7 @@ function Get-TdpscRestrictedPersonSearch
 
     Begin
     {
-        $url    = "https://app.teamdynamix.com/TDWebApi/api/people/lookup?maxResults=$MaxResults&searchText=$([System.Uri]::EscapeDataString($SearchText))"
+        $url    = (Get-TdpscApiBaseAddress) + "people/lookup?maxResults=$MaxResults&searchText=$([System.Uri]::EscapeDataString($SearchText))"
         $result = $null
     }
     Process
@@ -143,7 +143,7 @@ function Get-TdpscPersonSearch
 
     Begin
     {
-        $url    = 'https://app.teamdynamix.com/TDWebApi/api/people/search'
+        $url    = (Get-TdpscApiBaseAddress) + 'people/search'
         $result = $null
     }
     Process
@@ -223,7 +223,7 @@ function New-TdpscPersonImport
 
     Begin
     {
-        $url    = 'https://app.teamdynamix.com/TDWebApi/api/people/import'
+        $url    = (Get-TdpscApiBaseAddress) + 'people/import'
         $result = $null
     }
     Process
@@ -296,7 +296,7 @@ function Get-TdpscPerson
 
     Begin
     {
-        $url    = "https://app.teamdynamix.com/TDWebApi/api/people/$($UID)"
+        $url    = (Get-TdpscApiBaseAddress) + "people/$($UID)"
         $result = $null
     }
     Process
@@ -362,7 +362,7 @@ function Set-TdpscPerson
 
     Begin
     {
-        $url    = "https://app.teamdynamix.com/TDWebApi/api/people/$($Person.UID)"
+        $url    = (Get-TdpscApiBaseAddress) + "people/$($Person.UID)"
         $result = $null
     }
     Process
@@ -370,6 +370,9 @@ function Set-TdpscPerson
         if ($PSCmdlet.ShouldProcess($Bearer, 'Updates a person with a new set of values.'))
         {
             $request = $Person | ConvertTo-Json -Compress
+
+            Write-Debug -Message ($request | Out-String)
+
             $resp    = Invoke-WebRequest -Uri $url -Body $request -ContentType 'application/json' -Method Post -Headers @{'Authorization'='Bearer ' + $Bearer} -UseBasicParsing
             $result = $resp.Content | ConvertFrom-Json
         }
