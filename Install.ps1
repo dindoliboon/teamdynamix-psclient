@@ -12,7 +12,7 @@ param([string]$Path)
 
 $githubBase    = 'https://raw.github.com/dindoliboon'
 $moduleName    = 'teamdynamix-psclient'
-$moduleVersion = '1.0.0.4'
+$moduleVersion = '1.0.0.5'
 
 $fileList = @(
     'lib\',
@@ -22,7 +22,7 @@ $fileList = @(
     '.gitattributes',
     'Install.ps1',
     'LICENSE.md',
-    'README.md',
+    'Readme.md',
     'teamdynamix-psclient.psd1',
     'teamdynamix-psclient.psm1',
     'lib\apis\',
