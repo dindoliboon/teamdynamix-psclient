@@ -98,7 +98,7 @@ Active Directory Cmdlets will need to be installed (included in [RSAT](https://w
 
 6. Create the settings file by running the PowerShell command below.
    ```powershell
-   & 'V:\scripts\teamdynamix-psclient\1.0.0.5\samples\Sample-New-ExcelImportTemplate.ps1'
+   & 'V:\scripts\teamdynamix-psclient\1.0.0.6\samples\Sample-New-ExcelImportTemplate.ps1'
    ```
 
 7. For PSExcel path, enter:
@@ -112,17 +112,18 @@ Active Directory Cmdlets will need to be installed (included in [RSAT](https://w
 
 10. Create the XLSX by running the PowerShell command below. This process can take a few minutes depending on the size of your search base.
     ```powershell
-    & 'V:\scripts\teamdynamix-psclient\1.0.0.5\samples\Sample-New-ExcelImportTemplate.ps1'
+    & 'V:\scripts\teamdynamix-psclient\1.0.0.6\samples\Sample-New-ExcelImportTemplate.ps1'
     ```
 
 11. Upload the XLSX to TeamDynamix by running the PowerShell command below. This will also prompt for your administrative credentials for the first time and save it to a file.
     ```powershell
-    & 'V:\scripts\teamdynamix-psclient\1.0.0.5\samples\Sample-New-PersonImport.ps1'
+    & 'V:\scripts\teamdynamix-psclient\1.0.0.6\samples\Sample-New-PersonImport.ps1'
     ```
 
 To-do
 =======
-* Complete first section for API (Accounts, Attachments, Attributes, Auth Groups, Locations, People). Created initial module, which uses Json.NET and TeamDynamix.Api.dll to deserialize data to/from API calls into correct data types.
+* ~~Complete first section for API (Accounts, Attachments, Attributes, Auth, Groups, Locations, People).~~
+* ~~Created initial module, which uses Json.NET and TeamDynamix.Api.dll to deserialize data to/from API calls into correct data types.~~
 
 Credits
 =======

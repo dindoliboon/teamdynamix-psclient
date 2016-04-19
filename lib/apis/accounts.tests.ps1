@@ -15,6 +15,18 @@ InModuleScope teamdynamix-psclient {
     $account2        = '{"ID":2,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""}'
     $restAccountGet  = "[$account1,$account2]"
 
+    <#
+        # Generic catch-all. This will throw an exception if we forgot to mock something.
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient {
+            Write-Debug -Message 'Mocked Invoke-WebRequest with no parameter filter.'
+            Write-Debug -Message "`t[Method] $Method"
+            Write-Debug -Message "`t[URI]    $URI"
+            Write-Debug -Message "`t[Body]   $Body"
+
+            throw "Unidentified call to Invoke-WebRequest"
+        }
+    #>
+
     Describe 'Get-TdpscAccount' {
         Mock Get-InternalBearer -ModuleName teamdynamix-psclient {
             Write-Debug -Message 'Get-InternalBearer'
@@ -83,16 +95,6 @@ InModuleScope teamdynamix-psclient {
             Write-Debug -Message "`t[Body]   $Body"
 
             [PSCustomObject]@{Content = $restAccountGet}
-        }
-
-        # Generic catch-all. This will throw an exception if we forgot to mock something.
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient {
-            Write-Debug -Message 'Mocked Invoke-WebRequest with no parameter filter.'
-            Write-Debug -Message "`t[Method] $Method"
-            Write-Debug -Message "`t[URI]    $URI"
-            Write-Debug -Message "`t[Body]   $Body"
-
-            throw "Unidentified call to Invoke-WebRequest"
         }
 
         Context 'Passing with parameter' {
@@ -307,16 +309,6 @@ InModuleScope teamdynamix-psclient {
             $bearer
         }
 
-        # Generic catch-all. This will throw an exception if we forgot to mock something.
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient {
-            Write-Debug -Message 'Mocked Invoke-WebRequest with no parameter filter.'
-            Write-Debug -Message "`t[Method] $Method"
-            Write-Debug -Message "`t[URI]    $URI"
-            Write-Debug -Message "`t[Body]   $Body"
-
-            throw "Unidentified call to Invoke-WebRequest"
-        }
-
         Context 'Examples' {
             It 'Accepts creating new account, use internal bearer, verify output type' {
                 $tmp = New-TdpscAccount -Name 'Awesome Department' -City 'Anytown' -StateAbbr 'USA' -PostalCode '12345' -Country 'USA' -Phone '555-555-5555'
@@ -376,16 +368,6 @@ InModuleScope teamdynamix-psclient {
     }
 
     Describe 'Set-TdpscAccount' {
-        # Generic catch-all. This will throw an exception if we forgot to mock something.
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient {
-            Write-Debug -Message 'Mocked Invoke-WebRequest with no parameter filter.'
-            Write-Debug -Message "`t[Method] $Method"
-            Write-Debug -Message "`t[URI]    $URI"
-            Write-Debug -Message "`t[Body]   $Body"
-
-            throw "Unidentified call to Invoke-WebRequest"
-        }
-
         Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Put' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/1') -and $Body -eq '{"ID":1,"Name":"Testing Division","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":"","StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"

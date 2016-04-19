@@ -12,7 +12,7 @@ param([string]$Path)
 
 $githubBase    = 'https://raw.github.com/dindoliboon'
 $moduleName    = 'teamdynamix-psclient'
-$moduleVersion = '1.0.0.5'
+$moduleVersion = '1.0.0.6'
 
 $fileList = @(
     'lib\',
@@ -31,8 +31,16 @@ $fileList = @(
     'lib\tdtypes.internal.ps1',
     'lib\apis\accounts.ps1',
     'lib\apis\accounts.tests.ps1',
+    'lib\apis\attachments.ps1',
+    'lib\apis\attachments.tests.ps1',
+    'lib\apis\attributes.ps1',
+    'lib\apis\attributes.tests.ps1',
     'lib\apis\auth.ps1',
     'lib\apis\auth.tests.ps1',
+    'lib\apis\groups.ps1',
+    'lib\apis\groups.tests.ps1',
+    'lib\apis\locations.ps1',
+    'lib\apis\locations.tests.ps1',
     'lib\apis\people.ps1',
     'lib\apis\people.tests.ps1',
     'samples\Sample-Get-Department.ps1',
