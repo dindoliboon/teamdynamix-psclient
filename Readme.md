@@ -16,7 +16,7 @@ Install
 Invoke-Expression -Command (New-Object System.Net.WebClient).DownloadString('https://raw.github.com/dindoliboon/teamdynamix-psclient/master/Install.ps1')
 
 # Import the module
-Import-Module -Name "V:\WindowsPowerShell\Modules\teamdynamix-psclient\teamdynamix-psclient"
+Import-Module -Name "V:\scripts\teamdynamix-psclient\1.0.0.6\teamdynamix-psclient"
 ```
 
 Examples
@@ -30,10 +30,7 @@ See the [samples](https://github.com/dindoliboon/teamdynamix-psclient/tree/maste
 $bearer = Get-Credential | New-TdpscLoginSession
 
 # Get list of accounts/departments.
-$accounts = $bearer | Get-TdpscAccount
-
-# Display only ID and Name as a table.
-$accounts | Select -Property ID,Name | Sort-Object -Property Name
+Get-TdpscAccount | Select -Property ID, Name
 ```
 
 ### Perform restricted user search
@@ -43,14 +40,8 @@ Does not return full user information.
 # Open a user session.
 $bearer = Get-Credential | New-TdpscLoginSession
 
-# Get list of accounts/departments.
-$accounts = $bearer | Get-TdpscAccount
-
 # Perform restricted search.
-$users = $bearer | Get-TdpscRestrictedPersonSearch -SearchText 'John Doe'
-
-# Display results as a list.
-$users
+Get-TdpscRestrictedPersonSearch -SearchText 'John Doe'
 ```
 
 ### Disable a person
@@ -60,18 +51,9 @@ Account performing action must have API user access. For details about your BEID
 # Open an administrative session (uses BEID and web services key).
 $bearer = Get-Credential | New-TdpscLoginAdminSession
 
-# Get full details.
+# Pass full person details via pipeline, disable person.
 # UID was obtained from Get-TdpscRestrictedPersonSearch.
-$person = Get-TdpscPerson -Bearer $bearer -UID '9c83c59e-becf-4c12-b8db-09f6c022ef58'
-
-# Disable person.
-$person.IsActive = $false
-
-# Apply changes.
-$updatedPerson = Set-TdpscPerson -Bearer $bearer -Person $person
-
-# Display results as a list.
-$updatedPerson
+Get-TdpscPerson -UID '9c83c59e-becf-4c12-b8db-09f6c022ef58' | Set-TdpscPerson -IsActive $false
 ```
 
 ### Import users from XLSX
