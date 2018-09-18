@@ -52,7 +52,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscPerson -Bearer $bearer -UID $UID
 
                 $tmp.UID | Should Be $UID
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.User'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.User')
             }
         }
 
@@ -101,7 +101,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscPersonFunctionalRole -UID '313f362a-b885-4ea9-996a-6cc9c9eb039b'
 
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Roles.UserFunctionalRole'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Roles.UserFunctionalRole')
                 $tmp.Count | Should Be 2
             }
 
@@ -109,7 +109,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = '313f362a-b885-4ea9-996a-6cc9c9eb039b' | Get-TdpscPersonFunctionalRole
 
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Roles.UserFunctionalRole'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Roles.UserFunctionalRole')
                 $tmp.Count | Should Be 2
             }
         }
@@ -136,7 +136,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscPersonGroup -UID '313f362a-b885-4ea9-996a-6cc9c9eb039b'
 
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.UserGroup'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.UserGroup')
                 $tmp.Count | Should Be 2
             }
 
@@ -144,7 +144,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = '313f362a-b885-4ea9-996a-6cc9c9eb039b' | Get-TdpscPersonGroup
 
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.UserGroup'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.UserGroup')
                 $tmp.Count | Should Be 2
                 $tmp[0].CostRate | Should Be 100
                 $tmp[1].CostRate | Should Be 200
@@ -207,7 +207,7 @@ InModuleScope teamdynamix-psclient {
             }
 
             It 'Accepts -Bearer, first object returns type PSCustomObject' {
-                (Get-TdpscPersonSearch -Bearer $bearer)[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.User'
+                (Get-TdpscPersonSearch -Bearer $bearer)[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.User')
 
                 Assert-MockCalled -CommandName Invoke-WebRequest -Exactly -Times 1 -Scope It
             }
@@ -316,7 +316,7 @@ InModuleScope teamdynamix-psclient {
             It 'Accepts creating new person with parameters' {
                 $tmp = New-TdpscPerson -Password 'not-very-secure' -UserName 'MyUser@example.com' -AuthenticationUserName 'MyUser@example.com' -FirstName 'John' -LastName 'Doe' -PrimaryEmail 'MyUser@example.com' -TZID 2 -TypeID 1 -AlertEmail 'MyUser@example.com' -Company 'Awesome Company' -WorkZip '12345' -SecurityRoleID '8ab0f7f5-6e34-4cfa-a75a-ad2a2fc6bc9c'
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.User'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Users.User')
                 $tmp.UserName | Should Be 'MyUser@example.com'
             }
         }

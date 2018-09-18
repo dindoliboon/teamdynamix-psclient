@@ -153,7 +153,7 @@ InModuleScope teamdynamix-psclient {
             }
 
             It 'Accepts -Bearer, first object returns type Account or PSCustomObject' {
-                (Get-TdpscAccount -Bearer $bearer)[0].GetType().FullName | Should Be 'TeamDynamix.Api.Accounts.Account', 'System.Management.Automation.PSCustomObject'
+                (Get-TdpscAccount -Bearer $bearer)[0].GetType().FullName | Should -BeIn @('TeamDynamix.Api.Accounts.Account', 'System.Management.Automation.PSCustomObject')
 
                 Assert-MockCalled -CommandName Invoke-WebRequest -Exactly -Times 1 -Scope It
             }
@@ -165,14 +165,14 @@ InModuleScope teamdynamix-psclient {
 
                 $tmp.Count | Should Be 2
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
             }
 
             It 'Accepts account by ID, use internal bearer, verify returned name, verify output type' {
                 $tmp = Get-TdpscAccount -ID 2
 
                 $tmp.Name | Should Be 'Awesome Department'
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
 
             }
 
@@ -186,7 +186,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscAccount -Name 'Testing Division'
 
                 $tmp.Name | Should Be 'Testing Division'
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
 
             }
 
@@ -200,7 +200,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscAccount -Search @{'SearchText' = 'Testing Division'}
 
                 $tmp.Name | Should Be 'Testing Division'
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
             }
 
             It 'Accepts account by Search, use internal bearer, returns multiple accounts, verify returned name, verify output type' {
@@ -208,7 +208,7 @@ InModuleScope teamdynamix-psclient {
 
                 $tmp.Count | Should Be 2
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
             }
 
             It 'Fails with invalid account by Search' {
@@ -224,7 +224,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscAccount -Search $accountSearch
 
                 $tmp.Name | Should Be 'Awesome Department'
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
             }
 
             It 'Accepts account by Search with type [TeamDynamix.Api.Accounts.AccountSearch], use internal bearer, returns multiple accounts, verify returned name, verify output type' {
@@ -234,7 +234,7 @@ InModuleScope teamdynamix-psclient {
 
                 $tmp.Count | Should Be 2
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
             }
 
             It 'Fails with invalid account by Search with type [TeamDynamix.Api.Accounts.AccountSearch]' {
@@ -313,7 +313,7 @@ InModuleScope teamdynamix-psclient {
             It 'Accepts creating new account, use internal bearer, verify output type' {
                 $tmp = New-TdpscAccount -Name 'Awesome Department' -City 'Anytown' -StateAbbr 'USA' -PostalCode '12345' -Country 'USA' -Phone '555-555-5555'
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.Name | Should Be 'Awesome Department'
             }
 
@@ -333,7 +333,7 @@ InModuleScope teamdynamix-psclient {
                 $account.Phone      = '555-555-5555'
                 $tmp = $account | New-TdpscAccount -Name 'New Awesome Department'
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.Name | Should Be 'New Awesome Department'
             }
 
@@ -343,7 +343,7 @@ InModuleScope teamdynamix-psclient {
                 $account.Phone = '555-555-5555'
                 $tmp = $account | New-TdpscAccount
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.Name | Should Be 'Awesome Department'
             }
 
@@ -354,14 +354,14 @@ InModuleScope teamdynamix-psclient {
                 }
                 $tmp = $account | New-TdpscAccount
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.Name | Should Be 'Awesome Department'
             }
 
             It 'Accepts creating new account, use Get-TdpscAccount -ID with pipeline' {
                 $tmp = Get-TdpscAccount -ID 2 | New-TdpscAccount -Name 'Awesome Department'
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.Name | Should Be 'Awesome Department'
             }
         }
@@ -405,14 +405,14 @@ InModuleScope teamdynamix-psclient {
             It 'Accepts updating account, uses -ID' {
                 $tmp = Set-TdpscAccount -ID 1 -City 'Anytown' -StateAbbr 'USA' -PostalCode '12345' -Country 'USA' -Phone '555-555-5555'
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.City | Should Be 'Anytown'
             }
 
             It 'Accepts updating account, uses Get-TdpscAccount -ID with pipeline' {
                 $tmp = Get-TdpscAccount -ID 1 | Set-TdpscAccount -City 'Anytown' -StateAbbr 'USA' -PostalCode '12345' -Country 'USA' -Phone '555-555-5555'
 
-                $tmp.GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp.GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp.City | Should Be 'Anytown'
             }
 
@@ -420,7 +420,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = (Get-TdpscAccount -ID 1), (Get-TdpscAccount -ID 2) | Set-TdpscAccount -City 'Anytown' -StateAbbr 'USA' -PostalCode '12345' -Country 'USA' -Phone '555-555-5555'
 
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp[0].City | Should Be 'Anytown'
                 $tmp.Count | Should Be 2
             }
@@ -429,7 +429,7 @@ InModuleScope teamdynamix-psclient {
                 $tmp = Get-TdpscAccount | Where-Object {$_.ID -eq 1 -or $_.ID -eq 2} | Set-TdpscAccount -City 'Anytown' -StateAbbr 'USA' -PostalCode '12345' -Country 'USA' -Phone '555-555-5555'
 
                 $tmp.GetType().FullName | Should Be 'System.Object[]'
-                $tmp[0].GetType().FullName | Should Be 'System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account'
+                $tmp[0].GetType().FullName | Should -BeIn @('System.Management.Automation.PSCustomObject', 'TeamDynamix.Api.Accounts.Account')
                 $tmp[0].City | Should Be 'Anytown'
                 $tmp.Count | Should Be 2
             }
