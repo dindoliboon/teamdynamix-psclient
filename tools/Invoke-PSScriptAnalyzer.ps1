@@ -1,4 +1,4 @@
-﻿<#
+<#
     Starts Script Analyzer for the module.
 #>
 

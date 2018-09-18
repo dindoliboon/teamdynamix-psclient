@@ -1,4 +1,4 @@
-﻿<#
+<#
     http://www.leeholmes.com/blog/2015/01/05/extracting-tables-from-powershells-invoke-webrequest/
 
     Get-WebRequestTable.ps1 -WebRequest $request -TableNumber 0 | Format-Table -Auto

@@ -1,4 +1,4 @@
-﻿<#
+<#
     Creates a list of subfolders and files for Install.ps1 based on a specific path.
 
     Outputs information similar to the list below.

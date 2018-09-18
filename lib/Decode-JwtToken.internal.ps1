@@ -1,4 +1,4 @@
-﻿# https://gallery.technet.microsoft.com/JWT-Token-Decode-637cf001/
+# https://gallery.technet.microsoft.com/JWT-Token-Decode-637cf001/
 
 #Requires -Version 3
 

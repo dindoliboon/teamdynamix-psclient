@@ -1,4 +1,4 @@
-﻿#
+#
 # Sample-New-ExcelImportTemplate.ps1
 #
 # Generates the XLSX file used by TeamDynmaix.
