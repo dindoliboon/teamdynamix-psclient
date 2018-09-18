@@ -5,6 +5,7 @@ Set-StrictMode -Version 3
 Add-Type -AssemblyName System.Web
 Add-Type -AssemblyName Microsoft.PowerShell.Commands.Utility
 Add-Type -AssemblyName System.Web.Extensions
+Add-Type -AssemblyName System.Windows.Forms
 
 ForEach ($import in (Get-ChildItem -Path (Join-Path -Path $PSScriptRoot -ChildPath 'lib\*.ps1') -Recurse | Where-Object -FilterScript { $_.FullName -like '*.internal.ps1' }))
 {
