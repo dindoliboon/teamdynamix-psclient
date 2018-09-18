@@ -16,9 +16,9 @@ $Script:VerbosePreference     = 'SilentlyContinue'
 #>
 
 $param = @{
-    'Author'            = 'dliboon@nccu.edu'
-    'CompanyName'       = 'North Carolina Central University'
-    'Copyright'         = '(c) 2016 North Carolina Central University. All rights reserved.'
+    'Author'            = 'Dindo Liboon'
+    'CompanyName'       = ''
+    'Copyright'         = '(c) 2018 Dindo Liboon. All rights reserved.'
     'Description'       = 'PowerShell module for interacting with the TeamDynamix Web API 9.3'
     'AliasesToExport'   = 'Get-TdpscLoginSession', 'New-TdpscCachedLoginSession', 'New-TdpscLoginAdminSession', 'New-TdpscLoginSession'
     'CmdletsToExport'   = ''

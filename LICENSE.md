@@ -1,7 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2016 Dindo Liboon
-Copyright (c) 2016 North Carolina Central University
+Copyright (c) 2018 Dindo Liboon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
