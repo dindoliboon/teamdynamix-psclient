@@ -31,7 +31,7 @@ function Get-UploadBoundaryEncodedByte
             ContentType                 = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
         }
         $uploadFileData = Get-UploadBoundaryEncodedByte @param
- 
+
         Reads the contents of V:\my-sample-file.xlsx and stores the data into the $uploadFileData variable.
     .INPUTS
         None
@@ -226,15 +226,15 @@ function Set-InternalBearer
         Remove the internal bearer token.
     .EXAMPLE
         Set-InternalBearer -Bearer 'new bearer token'
- 
+
         Updates the internal bearer token, returns the value indicating success/failure.
     .EXAMPLE
         Set-InternalBearer -Bearer 'new bearer token' -PassThru
- 
+
         Updates the internal bearer token, returns the bearer token.
     .EXAMPLE
         Set-InternalBearer -Clear
- 
+
         Remove the internal bearer token.
     .INPUTS
         None
@@ -362,7 +362,7 @@ function ConvertTo-JsonDeserializeObject
     .EXAMPLE
         $account = '[{"ID":1,"Name":"Testing Division","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""},{"ID":2,"Name":"Information Technology Services","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""}]'
         ConvertTo-JsonDeserializeObject -String $account -Type TeamDynamix.Api.Accounts.Account
- 
+
         Converts the JSON string into an objects of type TeamDynamix.Api.Accounts.Account.
     .INPUTS
         None
@@ -394,12 +394,12 @@ function ConvertTo-JsonSerializeObject
     .SYNOPSIS
         Converts an object to a JSON-formatted string.
     .DESCRIPTION
-        The ConvertTo-JsonSerializeObject cmdlet converts any object to a string in JavaScript Object Notation (JSON) format. 
+        The ConvertTo-JsonSerializeObject cmdlet converts any object to a string in JavaScript Object Notation (JSON) format.
     .PARAMETER InputObject
         Specifies the objects to convert to JSON format. Enter a variable that contains the objects, or type a command or expression that gets the objects.
     .EXAMPLE
         ConvertTo-JsonSerializeObject -InputObject @{Account="User01";Domain="Domain01";Admin="True"}
- 
+
         Converts the object to a JSON-formatted string.
     .INPUTS
         None

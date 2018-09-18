@@ -48,7 +48,7 @@ InModuleScope teamdynamix-psclient {
         Context 'Passing with parameter' {
             It 'Accepts -Bearer and -UID' {
                 $UID = '313f362a-b885-4ea9-996a-6cc9c9eb039b'
-                
+
                 $tmp = Get-TdpscPerson -Bearer $bearer -UID $UID
 
                 $tmp.UID | Should Be $UID
@@ -59,7 +59,7 @@ InModuleScope teamdynamix-psclient {
         Context 'Passing bearer from pipeline' {
             It 'Accepts -UID' {
                 $UID = '313f362a-b885-4ea9-996a-6cc9c9eb039b'
-                
+
                 ($bearer | Get-TdpscPerson -UID $UID).UID | Should Be $UID
             }
         }
@@ -67,13 +67,13 @@ InModuleScope teamdynamix-psclient {
         Context 'Passing without parameter name' {
             It 'Accepts Bearer and -UID' {
                 $UID = '313f362a-b885-4ea9-996a-6cc9c9eb039b'
-                
+
                 (Get-TdpscPerson $bearer -UID $UID).UID | Should Be $UID
             }
 
             It 'Accepts with Bearer and UID (Fails in 1.0.0.5 and earlier)' {
                 $UID = '313f362a-b885-4ea9-996a-6cc9c9eb039b'
-                
+
                 (Get-TdpscPerson $bearer $UID).UID | Should Be $UID
             }
         }
@@ -380,7 +380,7 @@ InModuleScope teamdynamix-psclient {
 
             $bearer
         }
-        
+
         Context 'Examples' {
             It 'Accepts -UID and -RoleID' {
                 $tmp = Remove-TdpscPersonFunctionalRole -UID '313f362a-b885-4ea9-996a-6cc9c9eb039b' -RoleID 12
@@ -404,7 +404,7 @@ InModuleScope teamdynamix-psclient {
 
             $bearer
         }
-        
+
         Context 'Examples' {
             It 'Accepts -UID and -GroupID' {
                 $tmp = Remove-TdpscPersonGroup -UID '313f362a-b885-4ea9-996a-6cc9c9eb039b' -GroupID 12

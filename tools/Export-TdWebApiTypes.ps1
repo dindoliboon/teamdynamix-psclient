@@ -1,6 +1,6 @@
 <#
     Generates the type definition for the TeamDynamix API.
-    
+
     Export-TdWebApiTypes.ps1 | Out-File -FilePath 'V:\tdtypes.txt'
 #>
 

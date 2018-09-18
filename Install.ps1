@@ -2,7 +2,7 @@
 
     Run:
     iex (New-Object System.Net.WebClient).DownloadString('https://raw.github.com/dindoliboon/teamdynamix-psclient/master/Install.ps1')
-    
+
     Install.ps1 from:
     https://github.com/lzybkr/TabExpansionPlusPlus
 

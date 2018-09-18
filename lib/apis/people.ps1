@@ -281,7 +281,7 @@ function Get-TdpscPersonSearch
         The maximum number of records to return.
     .EXAMPLE
         Get-TdpscPersonSearch -Bearer $Bearer -SearchText 'John Doe'
-        
+
         Returns users matching search criteria.
     .INPUTS
         String
@@ -1049,7 +1049,7 @@ function New-TdpscPersonImport
             Activate or deactivate users (this should be done by calling the POST api/people/{uid} method)
             Change system application access for records being updated. Applications only apply for records to be created.
             Change platform application access for records, either on creation or updating.
-            Updating Existing Records: 
+            Updating Existing Records:
             The following matching logic is used to determine if a records should be udpated or created.
             Username - If there already exists one or more people, regardless of active status, with the same TeamDynamix username as a row that is being imported, those records will be updated from the spreadsheet. This field will only be used for the purposes of matching. TeamDynamix username fields will not be updated as part of this process.
             Authentication Username - If there already exists one or more people, regardless of active status, with the same TeamDynamix authentication username as a row that is being imported, those records will be updated from the spreadsheet. This is the Auth Username specified for the user in the TDAdmin application. This field will only be used for the purposes of matching. TeamDynamix authentication username fields will not be updated as part of this process.

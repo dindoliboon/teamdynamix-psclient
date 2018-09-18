@@ -154,7 +154,7 @@ InModuleScope teamdynamix-psclient {
 
             It 'Accepts -Bearer, first object returns type Account or PSCustomObject' {
                 (Get-TdpscAccount -Bearer $bearer)[0].GetType().FullName | Should Be 'TeamDynamix.Api.Accounts.Account', 'System.Management.Automation.PSCustomObject'
-            
+
                 Assert-MockCalled -CommandName Invoke-WebRequest -Exactly -Times 1 -Scope It
             }
         }

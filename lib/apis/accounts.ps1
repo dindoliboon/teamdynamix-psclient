@@ -343,7 +343,7 @@ function New-TdpscAccount
             }
 
             $accountModify.Name       = ($accountModify.Name,             $Name)[$PSBoundParameters.ContainsKey('Name')]
-            $accountModify.IsActive   = $true                       
+            $accountModify.IsActive   = $true
             $accountModify.Address1   = ($accountModify.Address1,     $Address1)[$PSBoundParameters.ContainsKey('Address1')]
             $accountModify.Address2   = ($accountModify.Address2,     $Address2)[$PSBoundParameters.ContainsKey('Address2')]
             $accountModify.Address3   = ($accountModify.Address3,     $Address3)[$PSBoundParameters.ContainsKey('Address3')]

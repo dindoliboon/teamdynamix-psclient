@@ -66,19 +66,19 @@ PowerShellVersion = '3.0'
 # NestedModules = @()
 
 # Functions to export from this module
-FunctionsToExport = 'Set-TdpscPersonFunctionalRole', 'Set-TdpscPerson', 
-               'Set-TdpscLocationRoom', 'Set-TdpscLocation', 
-               'Set-TdpscApiBaseAddress', 'Set-TdpscAccount', 
-               'Remove-TdpscPersonGroup', 'Remove-TdpscPersonFunctionalRole', 
-               'Remove-TdpscLocationRoom', 'Remove-TdpscAttachment', 
-               'New-TdpscPersonImport', 'New-TdpscPerson', 'New-TdpscLocationRoom', 
-               'New-TdpscLocation', 'New-TdpscAuthLoginSso', 
-               'New-TdpscAuthLoginAdmin', 'New-TdpscAuthLogin', 
-               'New-TdpscAuthCached', 'New-TdpscAuth', 'New-TdpscAccount', 
-               'Get-TdpscRestrictedPersonSearch', 'Get-TdpscPersonSearch', 
-               'Get-TdpscPersonGroup', 'Get-TdpscPersonFunctionalRole', 
-               'Get-TdpscPerson', 'Get-TdpscLocation', 'Get-TdpscGroup', 
-               'Get-TdpscCustomAttribute', 'Get-TdpscAuth', 'Get-TdpscAttachment', 
+FunctionsToExport = 'Set-TdpscPersonFunctionalRole', 'Set-TdpscPerson',
+               'Set-TdpscLocationRoom', 'Set-TdpscLocation',
+               'Set-TdpscApiBaseAddress', 'Set-TdpscAccount',
+               'Remove-TdpscPersonGroup', 'Remove-TdpscPersonFunctionalRole',
+               'Remove-TdpscLocationRoom', 'Remove-TdpscAttachment',
+               'New-TdpscPersonImport', 'New-TdpscPerson', 'New-TdpscLocationRoom',
+               'New-TdpscLocation', 'New-TdpscAuthLoginSso',
+               'New-TdpscAuthLoginAdmin', 'New-TdpscAuthLogin',
+               'New-TdpscAuthCached', 'New-TdpscAuth', 'New-TdpscAccount',
+               'Get-TdpscRestrictedPersonSearch', 'Get-TdpscPersonSearch',
+               'Get-TdpscPersonGroup', 'Get-TdpscPersonFunctionalRole',
+               'Get-TdpscPerson', 'Get-TdpscLocation', 'Get-TdpscGroup',
+               'Get-TdpscCustomAttribute', 'Get-TdpscAuth', 'Get-TdpscAttachment',
                'Get-TdpscApiBaseAddress', 'Get-TdpscAccount', 'Set-TdpscPersonGroup'
 
 # Cmdlets to export from this module
@@ -88,7 +88,7 @@ CmdletsToExport = @()
 VariablesToExport = @()
 
 # Aliases to export from this module
-AliasesToExport = 'Get-TdpscLoginSession', 'New-TdpscCachedLoginSession', 
+AliasesToExport = 'Get-TdpscLoginSession', 'New-TdpscCachedLoginSession',
                'New-TdpscLoginAdminSession', 'New-TdpscLoginSession'
 
 # DSC resources to export from this module

@@ -574,7 +574,7 @@ function New-TdpscAuthLoginSso
         Creates a session with a specific SSO provider, setting the initial SSO options. Contacts TeamDynamix API with the provided session reference.
 
         A browser window will not be displayed.
-        
+
         This example is very specific and can vary depending on your SSO provider.
 
         Returns the bearer token.

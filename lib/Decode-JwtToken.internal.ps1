@@ -36,7 +36,7 @@ function Decode-JWT([string]$rawToken)
 
 function Get-JwtTokenData
 {
-    [CmdletBinding()]  
+    [CmdletBinding()]
     Param
     (
         # Param1 help description
@@ -44,7 +44,7 @@ function Get-JwtTokenData
         [string] $Token,
         [switch] $Recurse
     )
-    
+
     if ($Recurse)
     {
         $decoded = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($Token))

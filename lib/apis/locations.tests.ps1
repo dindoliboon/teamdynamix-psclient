@@ -265,7 +265,7 @@ InModuleScope teamdynamix-psclient {
 
             [PSCustomObject]@{Content = $location1}
         }
-        
+
         Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Get' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'locations/4033')} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
@@ -273,7 +273,7 @@ InModuleScope teamdynamix-psclient {
 
             [PSCustomObject]@{Content = $location2}
         }
-        
+
         Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Put' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'locations/4032/rooms/104829') -and $Body -eq '{"ID":104829,"Name":"Room 1","ExternalID":"","AssetsCount":0,"TicketsCount":0,"CreatedDate":"2016-04-19T13:30:44.583Z","CreatedUID":"9e689d73-0000-0000-0000-0010188dda92","CreatedFullName":"API User"}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
