@@ -18,7 +18,9 @@ https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Apps.UserApplicat
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.Asset
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.AssetSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.AssetStatus
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.ContactInformation
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.ProductModel
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.ProductType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.Vendor
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Assets.VendorSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Attachments.Attachment
@@ -36,6 +38,8 @@ https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.BackingItemT
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationItem
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationItemRelationship
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationItemSearch
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationItemSource
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationItemSourceType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationItemType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.ConfigurationRelationshipType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Cmdb.MaintenanceSchedule
@@ -56,11 +60,15 @@ https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Feed.ItemUpdateRe
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Feed.Participant
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Feed.TicketFeedEntry
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Feed.UpdateType
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Forms.Form
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.Issue
-https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.IssueCreateOptions
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.IssueRiskCreateOptions
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.IssueSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.IssueStatus
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.IssueUpdate
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.Risk
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.RiskSearch
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Issues.RiskUpdate
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.JsonPatchOperation
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.KnowledgeBase.Article
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.KnowledgeBase.ArticleCategory
@@ -71,6 +79,7 @@ https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Locations.Locatio
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Locations.LocationSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.ApplicationIdentifier
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.Plan
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.PlanEdit
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.PlanSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.RelationshipType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.Task
@@ -78,16 +87,36 @@ https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.TaskChanges
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.TaskRelationship
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.TaskResource
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Plans.TaskUpdate
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.PlanUpdates
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.PriorityFactors.Impact
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.PriorityFactors.Priority
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.PriorityFactors.Urgency
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.ProjectRequests.ProjectRequest
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Projects.CustomColumn
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Projects.HealthChoice
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Projects.Project
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Projects.ProjectSearch
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Projects.Resource
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.AggregateFunction
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.ChartSetting
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.ColumnDataType
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.ComponentFunction
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.DisplayColumn
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.OrderByColumn
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.Report
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.ReportInfo
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Reporting.ReportSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.ResourceAllocationEditMode
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.ResourceItem
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.FunctionalRole
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.FunctionalRoleSearch
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.LicenseTypes
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.Permission
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.SecurityRole
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.SecurityRoleSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Roles.UserFunctionalRole
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Schedules.ResourcePool
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Schedules.ResourcePoolSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.ServiceCatalog.RequestComponent
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.ServiceCatalog.Service
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Statuses.StatusClass
@@ -102,13 +131,29 @@ https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Tickets.TicketTas
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Tickets.TicketTaskType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Tickets.TicketType
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Tickets.UnmetConstraintSearchType
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.BulkOperationResults
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.IndexAndIDPair
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeApiError
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeApiErrorCode
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeEntry
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeEntryComponent
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeReport
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeSearch
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeStatus
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeType
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Time.TimeTypeLimit
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.EligibleAssignment
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.Group
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.GroupMember
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.GroupSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.NewUser
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.User
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserAccountsBulkManagementParameters
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserApplicationsBulkManagementParameters
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserGender
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserGroup
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserGroupsBulkManagementParameters
+https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserListing
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserSearch
 https://app.teamdynamix.com/TDWebApi/Home/type/TeamDynamix.Api.Users.UserType
 '@ -split [Environment]::NewLine
@@ -118,7 +163,6 @@ Write-Debug -Message 'Output required references'
 Add-Type -TypeDefinition @'
 using System;
 using System.Collections.Generic;
-using System.Management.Automation;
 
 '@
 

@@ -27,7 +27,7 @@ Author = 'Dindo Liboon'
 Copyright = '(c) 2018 Dindo Liboon. All rights reserved.'
 
 # Description of the functionality provided by this module
-Description = 'PowerShell module for interacting with the TeamDynamix Web API 9.3'
+Description = 'PowerShell module for interacting with the TeamDynamix Web API 10.1'
 
 # Minimum version of the Windows PowerShell engine required by this module
 PowerShellVersion = '3.0'

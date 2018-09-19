@@ -27,7 +27,7 @@ function Get-TdpscPersonSearch
         The employee status to filter on.
     .PARAMETER AppName
         The name of the application to filter on. If specified, will only include users who have been granted access to this application.
-    .PARAMETER AccountID
+    .PARAMETER AccountIDs
         The account ID to filter on. If specified, will only include users who list the account as their default.
     .PARAMETER MaxResults
         The maximum number of records to return.
@@ -61,7 +61,7 @@ function Get-TdpscPersonSearch
 
 		[String]$AppName,
 
-		[System.Nullable[Int32]]$AccountID = $null,
+		[Int32[]]$AccountIDs = $null,
 
 		[System.Nullable[Int32]]$MaxResults = 25
     )
@@ -79,12 +79,12 @@ function Get-TdpscPersonSearch
         if ([String]::IsNullOrWhiteSpace($Bearer)) { $Bearer = Get-InternalBearer }
 
         $search = New-Object -TypeName TeamDynamix.Api.Users.UserSearch
-        $search.SearchText = $SearchText
-        $search.IsActive   = $IsActive
-        $search.IsEmployee = $IsEmployee
-        $search.AppName    = $AppName
-        $search.AccountID  = $AccountID
-        $search.MaxResults = $MaxResults
+        $search.SearchText  = $SearchText
+        $search.IsActive    = $IsActive
+        $search.IsEmployee  = $IsEmployee
+        $search.AppName     = $AppName
+        $search.AccountIDs  = $AccountIDs
+        $search.MaxResults  = $MaxResults
 
         $parms = @{
             Body            = ConvertTo-JsonSerializeObject -InputObject $search

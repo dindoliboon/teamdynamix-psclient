@@ -28,7 +28,7 @@ InModuleScope teamdynamix-psclient {
     #>
 
     Describe 'New-TdpscAccount' {
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"Already Exists","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":null,"StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":""}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"Already Exists","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":null,"StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":"","ManagerUID":"00000000-0000-0000-0000-000000000000","ManagerFullName":null,"Attributes":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -37,7 +37,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = ''}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":null,"StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":""}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":null,"StateAbbr":"","PostalCode":"","Country":"","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":"","ManagerUID":"00000000-0000-0000-0000-000000000000","ManagerFullName":null,"Attributes":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -46,7 +46,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = $Body}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"New Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":null,"StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":""}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"New Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":null,"StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":"","ManagerUID":"00000000-0000-0000-0000-000000000000","ManagerFullName":null,"Attributes":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -55,7 +55,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = $Body}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":null,"StateAbbr":"","PostalCode":"","Country":"","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":""}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":0,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"Anytown","StateName":null,"StateAbbr":"USA","PostalCode":"12345","Country":"USA","Phone":"555-555-5555","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(-62135578800000)\/","ModifiedDate":"\/Date(-62135578800000)\/","Code":"","IndustryID":0,"IndustryName":null,"Domain":"","ManagerUID":"00000000-0000-0000-0000-000000000000","ManagerFullName":null,"Attributes":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -64,7 +64,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = $Body}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":2,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":""}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts') -and $Body -eq '{"ID":2,"Name":"Awesome Department","IsActive":true,"Address1":"","Address2":"","Address3":"","Address4":"","City":"","StateName":"","StateAbbr":"  ","PostalCode":"","Country":"","Phone":"","Fax":"","Url":"","Notes":"","CreatedDate":"\/Date(1456247820000)\/","ModifiedDate":"\/Date(1456247820000)\/","Code":"","IndustryID":0,"IndustryName":"","Domain":"","ManagerUID":"00000000-0000-0000-0000-000000000000","ManagerFullName":null,"Attributes":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"

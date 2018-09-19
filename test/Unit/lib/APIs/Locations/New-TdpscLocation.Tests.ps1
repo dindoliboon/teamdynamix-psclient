@@ -32,7 +32,7 @@ InModuleScope teamdynamix-psclient {
             $bearer
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'locations') -and $Body -eq '{"ID":0,"Name":"Building 1","Description":"The first building","ExternalID":"","IsActive":false,"Address":"","City":"","State":"","PostalCode":"","Country":"","IsRoomRequired":false,"AssetsCount":0,"TicketsCount":0,"RoomsCount":0,"Rooms":null,"CreatedDate":"\/Date(-62135578800000)\/","CreatedUid":"00000000-0000-0000-0000-000000000000","CreatedFullName":null,"ModifiedDate":"\/Date(-62135578800000)\/","ModifiedUid":"00000000-0000-0000-0000-000000000000","ModifiedFullName":null}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'locations') -and $Body -eq '{"ID":0,"Name":"Building 1","Description":"The first building","ExternalID":"","IsActive":false,"Address":"","City":"","State":"","PostalCode":"","Country":"","IsRoomRequired":false,"AssetsCount":0,"TicketsCount":0,"RoomsCount":0,"Rooms":null,"CreatedDate":"\/Date(-62135578800000)\/","CreatedUid":"00000000-0000-0000-0000-000000000000","CreatedFullName":null,"ModifiedDate":"\/Date(-62135578800000)\/","ModifiedUid":"00000000-0000-0000-0000-000000000000","ModifiedFullName":null,"Latitude":null,"Longitude":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"

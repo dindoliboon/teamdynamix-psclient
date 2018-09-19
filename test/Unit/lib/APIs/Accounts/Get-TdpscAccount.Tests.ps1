@@ -43,7 +43,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = $restAccountGet}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/search') -and $Body -eq '{"SearchText":"e","CustomAttributes":null,"MaxResults":null}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/search') -and $Body -eq '{"SearchText":"e","ManagerUids":null,"CustomAttributes":null,"IsActive":null,"MaxResults":null}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -52,7 +52,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = $restAccountGet}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/search') -and $Body -eq '{"SearchText":"New Department","CustomAttributes":null,"MaxResults":1}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/search') -and $Body -eq '{"SearchText":"New Department","ManagerUids":null,"CustomAttributes":null,"IsActive":null,"MaxResults":1}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"
@@ -61,7 +61,7 @@ InModuleScope teamdynamix-psclient {
             [PSCustomObject]@{Content = ''}
         }
 
-        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/search') -and $Body -eq '{"SearchText":"Awesome","CustomAttributes":null,"MaxResults":1}'} {
+        Mock Invoke-WebRequest -ModuleName teamdynamix-psclient -ParameterFilter {$Method -eq 'Post' -and $URI -eq ((Get-TdpscApiBaseAddress) + 'accounts/search') -and $Body -eq '{"SearchText":"Awesome","ManagerUids":null,"CustomAttributes":null,"IsActive":null,"MaxResults":1}'} {
             Write-Debug -Message 'Mocked Invoke-WebRequest'
             Write-Debug -Message "`t[Method] $Method"
             Write-Debug -Message "`t[URI]    $URI"

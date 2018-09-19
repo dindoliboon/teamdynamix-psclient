@@ -21,16 +21,8 @@ function New-TdpscPerson
         The username of the user.
     .PARAMETER DesktopID
         The desktop ID of the desktop to associate with the new user.
-    .PARAMETER UID
-        The ID of the user.
-    .PARAMETER BEID
-        The BEID of the user.
-    .PARAMETER BEIDInt
-        The integer-based BEID of the user.
     .PARAMETER IsActive
         Gets or sets a value indicating whether this user is active.
-    .PARAMETER FullName
-        The full name of the user.
     .PARAMETER FirstName
         The first name of the user.
     .PARAMETER LastName
@@ -225,18 +217,6 @@ function New-TdpscPerson
 
         [Parameter(ValueFromPipelineByPropertyName=$true)]
         [Guid]$DesktopID,
-
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
-        [Guid]$UID,
-
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
-        [Guid]$BEID,
-
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
-        [Int32]$BEIDInt,
-
-        [Parameter(ValueFromPipelineByPropertyName=$true)]
-        [String]$FullName,
 
         [Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
         [String]$FirstName,
@@ -460,11 +440,7 @@ function New-TdpscPerson
             $newPerson.Password                 = ($newPerson.Password, $Password)[$PSBoundParameters.ContainsKey('Password')]
             $newPerson.UserName                 = ($newPerson.UserName, $UserName)[$PSBoundParameters.ContainsKey('UserName')]
             $newPerson.DesktopID                = ($newPerson.DesktopID, $DesktopID)[$PSBoundParameters.ContainsKey('DesktopID')]
-            $newPerson.UID                      = ($newPerson.UID, $UID)[$PSBoundParameters.ContainsKey('UID')]
-            $newPerson.BEID                     = ($newPerson.BEID, $BEID)[$PSBoundParameters.ContainsKey('BEID')]
-            $newPerson.BEIDInt                  = ($newPerson.BEIDInt, $BEIDInt)[$PSBoundParameters.ContainsKey('BEIDInt')]
             $newPerson.IsActive                 = $true
-            $newPerson.FullName                 = ($newPerson.FullName, $FullName)[$PSBoundParameters.ContainsKey('FullName')]
             $newPerson.FirstName                = ($newPerson.FirstName, $FirstName)[$PSBoundParameters.ContainsKey('FirstName')]
             $newPerson.LastName                 = ($newPerson.LastName, $LastName)[$PSBoundParameters.ContainsKey('LastName')]
             $newPerson.MiddleName               = ($newPerson.MiddleName, $MiddleName)[$PSBoundParameters.ContainsKey('MiddleName')]

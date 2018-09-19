@@ -1,6 +1,6 @@
 TeamDynamix PSClient
 =============
-Unofficial PowerShell module for interacting with [TeamDynamix Web API 9.3](https://app.teamdynamix.com/TDWebApi).
+Unofficial PowerShell module for interacting with [TeamDynamix Web API 10.1](https://app.teamdynamix.com/TDWebApi).
 
 This module is not complete and does not implement the entire TeamDynamix Web API.
 
