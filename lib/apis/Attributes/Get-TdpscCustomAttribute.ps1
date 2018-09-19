@@ -1,9 +1,3 @@
-<#
-    Contains methods for working with custom attributes.
-
-    https://app.teamdynamix.com/TDWebApi/Home/section/Attributes
-#>
-
 #Requires -Version 3
 
 Set-StrictMode -Version 3
@@ -106,5 +100,3 @@ function Get-TdpscCustomAttribute
         Write-Debug -Message "[$($MyInvocation.MyCommand.Name)] complete"
     }
 }
-
-Export-ModuleMember -Function Get-TdpscCustomAttribute

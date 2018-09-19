@@ -1,9 +1,3 @@
-<#
-    Contains methods for working with groups within the TeamDynamix people database.
-
-    https://app.teamdynamix.com/TDWebApi/Home/section/Group
-#>
-
 #Requires -Version 3
 
 Set-StrictMode -Version 3
@@ -110,5 +104,3 @@ function Get-TdpscGroup
         Write-Debug -Message "[$($MyInvocation.MyCommand.Name)] complete"
     }
 }
-
-Export-ModuleMember -Function Get-TdpscGroup
