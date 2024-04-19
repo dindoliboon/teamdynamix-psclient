@@ -1,3 +1,7 @@
+#### :warning: This repository has been archived.
+
+---
+
 TeamDynamix PSClient
 =============
 Unofficial PowerShell module for interacting with [TeamDynamix Web API 9.3](https://app.teamdynamix.com/TDWebApi).
